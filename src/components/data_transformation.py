@@ -60,7 +60,7 @@ class DataTransformation:
         except Exception as e:
             raise CustomException(e,sys)
 
-    def initiate_data_tansformation(self, train_path, test_path):
+    def initiate_data_transformation(self, train_path, test_path):
         try:
             train_df=pd.read_csv(train_path)
             test_df=pd.read_csv(test_path)
@@ -92,11 +92,11 @@ class DataTransformation:
             input_feature_test_arr=preprocessing_obj.transform(input_features_test_df)
 
             train_arr = np.c_[
-                input_features_train_df, np.array(target_features_train_df)         ## concatinatinf input and targetfeatures
+                input_feature_train_arr, np.array(target_features_train_df)         ## concatinatinf input and targetfeatures
             ]
 
             test_arr = np.c_[
-                input_features_test_df, np.array(target_features_test_df)         ## concatinatinf input and targetfeatures
+                input_feature_test_arr, np.array(target_features_test_df)         ## concatinatinf input and targetfeatures
             ]
 
             logging.info(f"Saved preprocessing object")
